@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { addFilter } from 'redux/usersSlice';
+// import { addFilter } from 'redux/auth/authSlice';
 import { Filter } from 'components/phonebook/filter/filter';
 import { ContactForm } from 'components/phonebook/contact-form/contactForm';
 import { ContactList } from 'components/phonebook/contact-list/contactList';
@@ -11,7 +11,7 @@ export const Contacts = () => {
   const findContact = event => {
     event.preventDefault();
     const search = event.target.value;
-    dispatch(addFilter(search));
+    // dispatch(addFilter(search));
   };
 
   return (

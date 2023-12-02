@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectFilter, selectIsLoading, selectUsers } from 'redux/selectors';
-import { deleteContact, fetchContacts } from 'redux/operations';
+import { deleteContact, fetchContacts } from 'redux/contacts/operations';
 import Loader from '../loader/loader';
 
 export const ContactList = () => {
@@ -12,9 +12,9 @@ export const ContactList = () => {
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
-  const filteredUsers = usersFromStore.filter(user =>
-    user.name.toUpperCase().includes(filter.toUpperCase())
-  );
+  // const filteredUsers = usersFromStore.filter(user =>
+  //   user.name.toUpperCase().includes(filter.toUpperCase())
+  // );
 
   const handleDelete = contactId => {
     dispatch(deleteContact(contactId));
@@ -26,7 +26,7 @@ export const ContactList = () => {
 
   return (
     <ul>
-      {isLoading && <Loader />}
+      {/* {isLoading && <Loader />}
       {filteredUsers.map(contact => {
         const { name, phone, id } = contact;
         return (
@@ -41,7 +41,7 @@ export const ContactList = () => {
             </button>
           </li>
         );
-      })}
+      })} */}
     </ul>
   );
 };

@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import { Routes, Route } from 'react-router-dom';
 
 // import { Filter } from './filter/filter';
-import { useDispatch } from 'react-redux';
-import { addFilter } from 'redux/usersSlice';
+// import { useDispatch } from 'react-redux';
+// import { addFilter } from 'redux/auth/authSlice';
 // import { ContactList } from './contact-list/contactList';
 // import { ContactForm } from './contact-form/contactForm';
 import { NotFound } from '../../pages/not-found/not-found';
