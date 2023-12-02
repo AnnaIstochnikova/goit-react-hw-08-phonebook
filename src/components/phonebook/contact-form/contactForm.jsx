@@ -8,16 +8,17 @@ import { useState } from 'react';
 export const ContactForm = () => {
   const dispatch = useDispatch();
   const usersFromStore = useSelector(selectUsers);
-  const [userData, setUserData] = useState({});
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
     const newName = form.elements.name.value;
 
-    const sameName = usersFromStore.find(user => user.name === userData.name);
+    const sameName = usersFromStore.find(user => user.name === name);
     if (sameName === undefined) {
-      dispatch(addContact(userData));
+      dispatch(addContact({ name, number }));
     } else {
       alert(`${newName} is already in contacts`);
     }
@@ -35,9 +36,7 @@ export const ContactForm = () => {
             name="name"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
-            onChange={e =>
-              setUserData(prev => ({ ...prev, name: e.target.value }))
-            }
+            onChange={e => setName(e.target.value)}
           />
           <h3>Number</h3>
           <input
@@ -45,9 +44,7 @@ export const ContactForm = () => {
             name="number"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
-            onChange={e =>
-              setUserData(prev => ({ ...prev, phone: e.target.value }))
-            }
+            onChange={e => setNumber(e.target.value)}
           />
           <button className="button--submit" type="submit">
             Add contact
