@@ -23,7 +23,9 @@ export const Phonebook = () => {
           <Route path="login" element={<Login />} />
           <Route path="contacts" element={<Contacts />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />}>
+          <Route index element={<Home />} />
+        </Route>
       </Routes>
     </>
   );
