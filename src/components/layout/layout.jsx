@@ -1,12 +1,10 @@
-import { Suspense } from 'react';
+import PropTypes from 'prop-types';
 import { Outlet } from 'react-router-dom';
 
 import { useAuth } from 'hook/useAuth';
-// import Loader from '../../components/phonebook/Loader/loader';
-import { Link, LayoutStyled } from 'components/layout/layout.styled';
 import { useDispatch } from 'react-redux';
 import { logout } from 'redux/auth/operations';
-// import { logout } from 'redux/auth/operations';
+import { Link, LayoutStyled } from 'components/layout/layout.styled';
 
 const RoutesByAuthorization = () => {
   const { isLoggedIn } = useAuth();
@@ -36,11 +34,16 @@ export const Layout = () => {
         <nav>
           <Link to="/">Home</Link>
           <RoutesByAuthorization />
-          {/* <Suspense fallback = {<Loader/>}> */}
-          {/* </Suspense> */}
         </nav>
         <Outlet />
       </LayoutStyled>
     </>
   );
+};
+
+RoutesByAuthorization.propTypes = {
+  isLoggedIn: PropTypes.bool,
+  dispatch: PropTypes.func,
+  handleClick: PropTypes.func,
+  input: PropTypes.string,
 };

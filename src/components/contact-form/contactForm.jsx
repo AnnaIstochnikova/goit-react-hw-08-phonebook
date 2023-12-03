@@ -56,11 +56,11 @@ export const ContactForm = () => {
 };
 
 ContactForm.propTypes = {
-  userData: PropTypes.object,
+  dispatch: PropTypes.func,
   h3: PropTypes.string,
   onSubmit: PropTypes.func,
   name: PropTypes.string,
-  phoneNumber: PropTypes.string,
-  newContact: PropTypes.object,
+  number: PropTypes.string,
+  newName: PropTypes.string,
   sameName: PropTypes.object,
 };
