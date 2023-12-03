@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
 
 import { addFilter } from 'redux/contacts/contactsSlice';
-import { Filter } from 'components/phonebook/filter/filter';
-import { ContactForm } from 'components/phonebook/contact-form/contactForm';
-import { ContactList } from 'components/phonebook/contact-list/contactList';
+import { Filter } from 'components/filter/filter';
+import { ContactForm } from 'components/contact-form/contactForm';
+import { ContactList } from 'components/contact-list/contactList';
 
 export const Contacts = () => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import {
   Description404,
   Poster404Styled,
-} from 'components/phonebook/not-found/not-found.styled';
+} from 'components/not-found/not-found.styled';
 import { Link, Outlet } from 'react-router-dom';
 
 export const NotFound = () => {

@@ -3,12 +3,12 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Home } from 'pages/home/home';
 import { Login } from 'pages/login/login';
-import { Layout } from 'pages/layout/layout';
+import { Layout } from 'components/layout/layout';
 import { Contacts } from 'pages/contacts/contacts';
 import { Register } from 'pages/register/register';
 import { NotFound } from 'pages/not-found/not-found';
-import { PrivateRoute } from './phonebook/private-route/private-route';
-import { ProtectedRoute } from './phonebook/protected-route/protected-route';
+import { PrivateRoute } from './private-route/private-route';
+import { ProtectedRoute } from './protected-route/protected-route';
 
 export const App = () => {
   return (
