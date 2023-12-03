@@ -2,7 +2,11 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectFilter, selectIsLoading, selectUsers } from 'redux/selectors';
+import {
+  selectFilter,
+  selectIsLoading,
+  selectUsers,
+} from 'redux/contacts/selectors';
 import { deleteContact, fetchContacts } from 'redux/contacts/operations';
 import Loader from '../loader/loader';
 
@@ -27,21 +31,22 @@ export const ContactList = () => {
   return (
     <ul>
       {isLoading && <Loader />}
-      {filteredUsers.map(contact => {
-        const { name, number, id } = contact;
-        return (
-          <li key={id}>
-            {name}: {number}
-            <button
-              className="button-delete"
-              type="button"
-              onClick={() => handleDelete(id)}
-            >
-              Delete
-            </button>
-          </li>
-        );
-      })}
+      {isLoading ||
+        filteredUsers.map(contact => {
+          const { name, number, id } = contact;
+          return (
+            <li key={id}>
+              {name}: {number}
+              <button
+                className="button-delete"
+                type="button"
+                onClick={() => handleDelete(id)}
+              >
+                Delete
+              </button>
+            </li>
+          );
+        })}
     </ul>
   );
 };
