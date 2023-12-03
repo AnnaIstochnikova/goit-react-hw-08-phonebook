@@ -15,7 +15,7 @@ export const Description404 = styled.div`
   position: absolute;
   left: 2%;
   top: 2%;
-  font-size: 5rem;
+  font-size: 3.5rem;
   color: white;
   border-radius: 50px;
   padding: 40px;
@@ -27,8 +27,9 @@ export const Description404 = styled.div`
     text-decoration: none;
     color: black;
     border: 5px solid white;
-    width: 60%;
+    width: fit-content;
     text-align: center;
     border-radius: 50px;
+    padding: 10px;
   }
 `;

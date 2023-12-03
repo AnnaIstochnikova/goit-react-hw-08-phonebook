@@ -7,14 +7,14 @@ import {
   selectIsLoading,
   selectUsers,
 } from 'redux/contacts/selectors';
-import { deleteContact, fetchContacts } from 'redux/contacts/operations';
 import Loader from '../loader/loader';
+import { deleteContact, fetchContacts } from 'redux/contacts/operations';
 
 export const ContactList = () => {
-  const usersFromStore = useSelector(selectUsers);
+  const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
   const isLoading = useSelector(selectIsLoading);
-  const dispatch = useDispatch();
+  const usersFromStore = useSelector(selectUsers);
 
   const filteredUsers = usersFromStore.filter(user =>
     user.name.toUpperCase().includes(filter.toUpperCase())
@@ -54,6 +54,7 @@ export const ContactList = () => {
 ContactList.propTypes = {
   onDelete: PropTypes.func,
   usersFromStore: PropTypes.object,
+  isLoading: PropTypes.bool,
   filter: PropTypes.string,
   filteredUsers: PropTypes.object,
   dispatch: PropTypes.func,

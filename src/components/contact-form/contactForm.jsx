@@ -1,15 +1,15 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectUsers } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
-import { useState } from 'react';
+import { selectUsers } from 'redux/contacts/selectors';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const usersFromStore = useSelector(selectUsers);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const usersFromStore = useSelector(selectUsers);
 
   const handleSubmit = e => {
     e.preventDefault();
