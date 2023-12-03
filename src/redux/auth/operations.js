@@ -31,3 +31,13 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
     return thunkAPI.API.rejectedWithValue(error.message);
   }
 });
+
+export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+  try {
+    const result = await axios.post('/users/logout');
+    setAuthHeader();
+    return result.data;
+  } catch (error) {
+    return thunkAPI.API.rejectedWithValue(error.message);
+  }
+});
