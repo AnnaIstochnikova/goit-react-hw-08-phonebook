@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectUsers } from 'redux/selectors';
+import { selectUsers } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
 import { useState } from 'react';
 
