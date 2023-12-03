@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Loader from './loader/loader';
 import { Home } from 'pages/home/home';
@@ -29,19 +29,19 @@ export const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route
-            path="register"
+            path="/register"
             element={
               <ProtectedRoute element={<Register />} redirect="/contacts" />
             }
           />
           <Route
-            path="login"
+            path="/login"
             element={
               <ProtectedRoute element={<Login />} redirect="/contacts" />
             }
           />
           <Route
-            path="contacts"
+            path="/contacts"
             element={<PrivateRoute element={<Contacts />} redirect="/login" />}
           />
         </Route>
