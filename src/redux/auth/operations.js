@@ -49,12 +49,11 @@ export const currentUser = createAsyncThunk(
       try {
         setAuthHeader(token);
         const result = await axios.get('/users/current');
-        console.log(result);
-        // console.log(result.data.token);
         return result.data;
       } catch (error) {
         return thunkAPI.API.rejectedWithValue(error.message);
       }
     }
+    return thunkAPI.API.rejectedWithValue();
   }
 );
