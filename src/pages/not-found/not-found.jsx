@@ -8,7 +8,7 @@ export const NotFound = () => {
   return (
     <>
       <Poster404Styled
-        alt="Сosmonaut"
+        alt="cosmos"
         srcSet={`${process.env.PUBLIC_URL}/page404.jpg`}
       />
       <Description404>
