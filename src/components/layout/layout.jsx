@@ -7,7 +7,7 @@ import { logout } from 'redux/auth/operations';
 import { Link, LayoutStyled } from 'components/layout/layout.styled';
 
 const RoutesByAuthorization = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, user } = useAuth();
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -16,6 +16,7 @@ const RoutesByAuthorization = () => {
 
   return isLoggedIn ? (
     <>
+      <button>{user.email}</button>
       <button onClick={handleClick}>Logout</button>
       <Link to="/contacts">Contacts</Link>
     </>
