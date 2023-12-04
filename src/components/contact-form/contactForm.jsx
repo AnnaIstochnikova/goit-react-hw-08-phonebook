@@ -19,7 +19,6 @@ export const ContactForm = () => {
     const newName = form.elements.name.value;
 
     const sameName = usersFromStore.find(user => user.name === name);
-    console.log(sameName);
     if (sameName === undefined) {
       dispatch(addContact({ name, number }));
     } else {
