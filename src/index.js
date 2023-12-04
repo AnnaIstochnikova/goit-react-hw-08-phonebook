@@ -9,10 +9,12 @@ import store, { storePersist } from 'redux/store';
 
 import './index.scss';
 
+const basename = '/goit-react-hw-08-phonebook';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <PersistGate persistor={storePersist} loading={null}>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <App />
       </BrowserRouter>
     </PersistGate>
