@@ -4,7 +4,17 @@ import { Outlet } from 'react-router-dom';
 import { useAuth } from 'hook/useAuth';
 import { useDispatch } from 'react-redux';
 import { logout } from 'redux/auth/operations';
-import { Link, LayoutStyled } from 'components/layout/layout.styled';
+
+import { NavLink } from 'react-router-dom';
+
+import {
+  HomeIcon,
+  LoginIcon,
+  LogoutIcon,
+  RegisterIcon,
+  PhoneIcon,
+  EmailIcon,
+} from 'components/icons/icons';
 
 const RoutesByAuthorization = () => {
   const { isLoggedIn, user } = useAuth();
@@ -16,14 +26,29 @@ const RoutesByAuthorization = () => {
 
   return isLoggedIn ? (
     <>
-      <button>{user.email}</button>
-      <button onClick={handleClick}>Logout</button>
-      <Link to="/contacts">Contacts</Link>
+      <button>
+        <EmailIcon />
+        {user.email}
+      </button>
+      <button onClick={handleClick}>
+        <LogoutIcon />
+        Logout
+      </button>
+
+      <NavLink to="/contacts">
+        <PhoneIcon />
+        Contacts
+      </NavLink>
     </>
   ) : (
     <>
-      <Link to="/login">Login</Link>
-      <Link to="/register">Register</Link>
+      <NavLink to="/login">
+        <LoginIcon /> Login
+      </NavLink>
+      <NavLink to="/register">
+        <RegisterIcon />
+        Register
+      </NavLink>
     </>
   );
 };
@@ -31,13 +56,15 @@ const RoutesByAuthorization = () => {
 export const Layout = () => {
   return (
     <>
-      <LayoutStyled>
+      <header>
         <nav>
-          <Link to="/">Home</Link>
+          <NavLink to="/">
+            <HomeIcon /> Home
+          </NavLink>
           <RoutesByAuthorization />
         </nav>
         <Outlet />
-      </LayoutStyled>
+      </header>
     </>
   );
 };

@@ -10,6 +10,8 @@ import {
 import Loader from '../loader/loader';
 import { deleteContact, fetchContacts } from 'redux/contacts/operations';
 
+import { Button } from '@chakra-ui/react';
+
 export const ContactList = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
@@ -37,13 +39,13 @@ export const ContactList = () => {
           return (
             <li key={id}>
               {name}: {number}
-              <button
-                className="button-delete"
+              <Button
+                colorScheme="blackAlpha"
                 type="button"
                 onClick={() => handleDelete(id)}
               >
                 Delete
-              </button>
+              </Button>
             </li>
           );
         })}

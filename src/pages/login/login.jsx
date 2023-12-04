@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Button, Input } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 
 import { login } from 'redux/auth/operations';
@@ -26,7 +27,10 @@ export const Login = () => {
       <form onSubmit={handleSubmit}>
         <>
           <h3>Email</h3>
-          <input
+          <Input
+            w="300px"
+            borderColor="telegram"
+            size="xs"
             autoComplete="username"
             type="text"
             name="email"
@@ -36,7 +40,10 @@ export const Login = () => {
             onChange={e => setEmail(e.target.value)}
           />
           <h3>Password</h3>
-          <input
+          <Input
+            w="300px"
+            borderColor="telegram"
+            size="xs"
             autoComplete="current-password"
             type="password"
             name="password"
@@ -45,9 +52,14 @@ export const Login = () => {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-          <button className="button--submit" type="submit">
+          <Button
+            w="200px"
+            colorScheme="telegram"
+            className="button--submit"
+            type="submit"
+          >
             Login
-          </button>
+          </Button>
         </>
       </form>
     </>

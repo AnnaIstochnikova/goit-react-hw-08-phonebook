@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
 import { selectUsers } from 'redux/contacts/selectors';
 
+import { Button, Input } from '@chakra-ui/react';
+
 export const ContactForm = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -17,6 +19,7 @@ export const ContactForm = () => {
     const newName = form.elements.name.value;
 
     const sameName = usersFromStore.find(user => user.name === name);
+    console.log(sameName);
     if (sameName === undefined) {
       dispatch(addContact({ name, number }));
     } else {
@@ -30,7 +33,10 @@ export const ContactForm = () => {
       <form onSubmit={handleSubmit}>
         <>
           <h3>Name</h3>
-          <input
+          <Input
+            w="300px"
+            borderColor="telegram"
+            size="xs"
             className="input--name"
             type="text"
             name="name"
@@ -39,16 +45,24 @@ export const ContactForm = () => {
             onChange={e => setName(e.target.value)}
           />
           <h3>Number</h3>
-          <input
+          <Input
+            w="300px"
+            borderColor="telegram"
+            size="xs"
             type="tel"
             name="number"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
             onChange={e => setNumber(e.target.value)}
           />
-          <button className="button--submit" type="submit">
+          <Button
+            w="200px"
+            colorScheme="telegram"
+            className="button--submit"
+            type="submit"
+          >
             Add contact
-          </button>
+          </Button>
         </>
       </form>
     </>

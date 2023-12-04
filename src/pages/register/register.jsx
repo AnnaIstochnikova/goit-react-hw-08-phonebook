@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 
 import { register } from 'redux/auth/operations';
 
+import { Button, Input } from '@chakra-ui/react';
+
 export const Register = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -28,7 +30,10 @@ export const Register = () => {
       <form onSubmit={handleSubmit}>
         <>
           <h3>Name</h3>
-          <input
+          <Input
+            w="300px"
+            borderColor="telegram"
+            size="xs"
             autoComplete="username"
             className="input--name"
             type="text"
@@ -39,7 +44,10 @@ export const Register = () => {
             onChange={e => setName(e.target.value)}
           />
           <h3>Email</h3>
-          <input
+          <Input
+            w="300px"
+            borderColor="telegram"
+            size="xs"
             autoComplete="username"
             type="text"
             name="email"
@@ -49,7 +57,10 @@ export const Register = () => {
             onChange={e => setEmail(e.target.value)}
           />
           <h3>Password</h3>
-          <input
+          <Input
+            w="300px"
+            borderColor="telegram"
+            size="xs"
             autoComplete="current-password"
             type="password"
             name="password"
@@ -58,9 +69,9 @@ export const Register = () => {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-          <button className="button--submit" type="submit">
+          <Button w="200px" colorScheme="telegram" type="submit">
             Register
-          </button>
+          </Button>
         </>
       </form>
     </>
